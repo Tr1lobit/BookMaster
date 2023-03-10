@@ -1,0 +1,212 @@
+﻿<Window x:Class="Bookmaster_Afonichev.View.Windows.BrowseCatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookmaster_Afonichev.View.Windows"
+        mc:Ignorable="d"
+        Title="Bookmaster™"
+        MinHeight="720" MinWidth="1280"
+        Height="900" Width="1600"
+        MaxHeight="1080" MaxWidth="1920"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height=".8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Name="LoginMi" 
+                          Header="Login"
+                          Click="LoginMi_Click"/>
+                <MenuItem Name="LogoutMi" 
+                          Header="Logout"
+                          Visibility="Collapsed"
+                          Click="LogoutMi_Click"/>
+                <MenuItem Name="closeMi" 
+                          Header="Close"
+                          Click="CloseMi_Click"/>
+            </MenuItem>
+            <MenuItem Name="LibraryMi" 
+                      Header="Library"
+                      Visibility="Collapsed">
+                <MenuItem Name="ManageCustomersMi" 
+                          Header="Manage Customers"
+                          Click="ManageCustomersMi_Click"/>
+                <MenuItem Name="CirculationMi" 
+                          Header="Ciculation"
+                          Click="Circulation_Click"/>
+                <MenuItem Name="ReportsMi" 
+                          Header="Reports"
+                          Click="ReportsMi_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1"
+              Grid.RowSpan="2"
+              Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".4*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.ColumnSpan="2" 
+                   Source="O:\Afonichev.Anton\Bookmaster_Afonichev\Bookmaster_Afonichev\Resources\Icons\logo.png"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="Title"/>
+            <TextBlock Grid.Row="3"
+                       Text="Author"/>
+            <TextBlock Grid.Row="5"
+                       Text="subject"/>
+
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     x:Name="TitleTb"/>
+            <TextBox Grid.Row="3"
+                     Grid.Column="1"/>
+            <TextBox Grid.Row="5"
+                     Grid.Column="1"/>
+
+            <Button x:Name="SearchBtn"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Content="Search"
+                    Click="SearchBtn_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="SearchResultsLv"
+                  SelectionChanged="SearchResultsLv_SelectionChanged">
+                <!--Изменение вида списка-->
+                <ListView.View>
+                    <GridView>
+                        <!--Создаем нужное количество столбцов-->
+                        <GridViewColumn Header="Title"
+                                    DisplayMemberBinding="{Binding Book.Title}"/>
+                        <GridViewColumn Header="Authors"
+                                    DisplayMemberBinding="{Binding Author.Name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Page"
+                       HorizontalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                    Content="&lt;"/>
+
+                <TextBox Grid.Column="2"/>
+
+                <Button Grid.Column="3"
+                    Content="&gt;"/>
+
+                <TextBlock Grid.Column="4"
+                       Text="of 4"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Column="6"
+                       Text="{Binding ElementName=SearchResultsLv,Path=Items.Count, StringFormat={}{0} books found}"
+                       HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Grid.Column="1"
+              Name="BookDetailsGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="700"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".7*"/>
+                    <RowDefinition Height=".4*"/>
+                    <RowDefinition Height=".4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="20 15 0 0">
+                    <TextBlock Text="{Binding Book.Title}"
+                               FontWeight="SemiBold"/>
+                    <TextBlock Text="&lt;&lt;SUBTITLE>>"
+                               FontSize="23"/>
+                </StackPanel>
+                <TextBlock Grid.Row="1"
+                           Text="by &lt;&lt;AUTHORS>>"
+                           Margin="20 0 0 0"/>
+                <TextBlock Grid.Row="2"
+                           Text="first published: &lt;&lt;FIRST PUBLISHED>>"
+                           Margin="20 0 0 0"/>
+                <StackPanel Grid.Row="3"
+                            Margin="20 0 0 0">
+                    <TextBlock Text="Description"/>
+                    <TextBlock Text="&lt;&lt;DESCRIPTION>>"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4"
+                            Margin="20 0 0 0">
+                    <TextBlock Text="Subjects"/>
+                    <TextBlock Text="&lt;&lt;BOOK SUBJECTS>>"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="360" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Image Source="O:\Afonichev.Anton\Bookmaster_Afonichev\Bookmaster_Afonichev\Resources\Icons\booklogo.jpg"
+                       Grid.ColumnSpan="3"
+                       Height="250"/>
+                <Button Grid.Row="1"
+                        Content="&lt;"/>
+                <Button Grid.Row="1"
+                        Grid.Column="2"
+                        Content=">"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c9781bb0d464a85aaaa7955747ed711" Name="Diagram1">
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.Author" Width="1.5" PointX="5.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.Book" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.BookAuthor" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.BookCover" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.BookSubject" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.Cover" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.Subject" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Bookmaster_AfonichevModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookAuthor_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookAuthor_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookCover_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookSubject_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookCover_Cover" ManuallyRouted="false" />
+        <AssociationConnector Association="Bookmaster_AfonichevModel.FK_BookSubject_Subject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
