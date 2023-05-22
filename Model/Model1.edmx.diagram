@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cca03ea8b04a4fc1a81fffad0e2dd5c8" Name="Diagram1">
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Authors" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Book" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.BookAuthor" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.BookCover" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.BookSubject" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Cover" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Customer" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Subject" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookAuthor_Authors" ManuallyRouted="false" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookAuthor_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookCover_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookSubject_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookCover_Cover" ManuallyRouted="false" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_BookSubject_Subject" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BookmasterDb_KOSATKAModel.Circulation" Width="1.5" PointX="8" PointY="2.125" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_CirculationId_BookAuthor" />
+        <AssociationConnector Association="BookmasterDb_KOSATKAModel.FK_CirculationId_Customer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

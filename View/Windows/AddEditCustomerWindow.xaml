@@ -1,0 +1,101 @@
+﻿<Window x:Class="Boolmaster_Samodin.View.Windows.AddEditCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Boolmaster_Samodin.View.Windows"
+        mc:Ignorable="d"
+        Title="AddEditCustomerWindow" 
+        Height="450" 
+        Width="1150">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1"
+                   Text="ID"/>
+        <TextBox Name="IdTb"
+                 Grid.Row="1" 
+                 Margin="147,0,0,0"
+                 Focusable="False"
+                 Background="#DADADA"
+                 BorderBrush="#A0A0A0"
+                 Text="{Binding CustomerId, StringFormat=C{0}}"/>
+
+        
+        <TextBlock Grid.Row="3"
+                   Text="Name"/>
+        <TextBox Name="NameTb" 
+                 Grid.Row="3"
+                 Margin="147,0,0,0"
+                 Text="{Binding Name}"/>
+
+        
+        <TextBlock Grid.Row="5"
+                   Text="Address"/>
+        <TextBox Name="AddressTb" 
+                 Grid.Row="5"
+                 Margin="147,0,0,0"
+                 Text="{Binding Address}"/>
+
+        
+        <TextBlock Grid.Row="7"
+                   Text="Zip/City"/>
+        <TextBox Name="CityTb" 
+                 Grid.Row="7"
+                 Margin="307,0,0,0"
+                 Text="{Binding City}"/>
+        <TextBox Name="ZipTb" 
+                 Grid.Row="7"
+                 Margin="147,0,267,0"
+                 Text="{Binding Zip}"/>
+
+        
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Phone"/>
+        <TextBox Name="PhoneTb" Grid.Row="3"
+                 Grid.Column="3"
+                 Margin="147,0,0,0"
+                 Text="{Binding Phone}"/>
+
+        
+        <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   Text="Email"/>
+        <TextBox Name="EmailTb" 
+                 Grid.Row="5"
+                 Grid.Column="1"
+                 Margin="147,0,0,0"
+                 Text="{Binding Email}"/>
+
+        <Button Name="SaveBtn"
+                Grid.Row="8"
+                Grid.Column="1"
+                Content="Save"
+                FontSize="25"
+                Click="SaveBtn_Click" Margin="285,0,152,0"/>
+        <Button Name="CanelBtn"
+                Grid.Row="8"
+                Grid.Column="1"
+                Content="Close"
+                FontSize="25"
+                Click="CanelBtn_Click" Margin="426,0,0,0"/>
+
+
+    </Grid>
+</Window>

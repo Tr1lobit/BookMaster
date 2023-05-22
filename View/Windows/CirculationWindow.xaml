@@ -1,0 +1,135 @@
+﻿<Window x:Class="Boolmaster_Samodin.View.Windows.CirculationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Boolmaster_Samodin.View.Windows"
+        mc:Ignorable="d"
+        Title="Circulation" 
+        MinHeight="720" MinWidth="1280"
+        MaxHeight="1080" MaxWidth="1920"
+        Height="720" Width="1280"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*"/>
+            <ColumnDefinition Width="1*"/>
+           
+        </Grid.ColumnDefinitions>
+
+        <Image Source="O:\SamodinMatvey\Boolmaster_Samodin\Boolmaster_Samodin\Resources\Icons\logo.png"/>
+
+        <!-- Customer panel-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="1" Header="Customer ID">
+                <TextBox Name="SearchIdTb"/>
+            </GroupBox>
+
+            <Button Name="CirculationBtn"
+                    Grid.Row="3"
+                    Content="Circulation"
+                    HorizontalAlignment="Right"
+                    Width="200"
+                    Click="CirculationBtn_Click"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Name}"
+                       FontSize="30"
+                       FontWeight="SemiBold"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="{Binding CustomerId, StringFormat=(c{0})}"
+                       FontSize="30"/>
+
+            <TextBlock Grid.Row="3"
+                       Text="{Binding Address}"
+                       FontSize="25"/>
+
+            <TextBlock Grid.Row="4"
+                       FontSize="25">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Zip"/>
+                        <Binding Path="City"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+
+            <Button Name="EditBtn"
+                    Grid.Row="6"
+                    Content="Edit"
+                    HorizontalAlignment="Right"
+                    Width="100"
+                    Click="EditBtn_Click"/>
+
+
+        </Grid>
+        
+        <Grid Name="BookGrid" 
+              Grid.Column="1" Grid.RowSpan="3" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Issue/Return" Grid.ColumnSpan="3" FontSize="30" FontWeight="SemiBold"/>
+
+            <TextBlock Grid.Row="1" Text="Book ID"/>
+
+            <TextBox Name="BookSearchTb"
+                     TextChanged="BookSearchTb_TextChanged"
+                     Grid.Row="1" Grid.Column="2"/>
+
+            <Button Name="IssueBtn"
+                Grid.Column="4" Grid.Row="1"
+                Content="Issue"
+                IsEnabled="false"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="2"
+                       Text="{Binding Book.Title, StringFormat=Title: {0}}"/>
+
+            <Button Name="ReturnBtn" 
+                    Grid.Row="3" Grid.Column="4"
+                    Content="Return"
+                    IsEnabled="false" />
+        </Grid>
+    </Grid>
+</Window>
